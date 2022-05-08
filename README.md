@@ -17,7 +17,8 @@ docker-compose up airflow-init
 ### MongoDB
 ```
 docker pull mongo
-docker run --name mongodb -d -v <PATH>>data/db mongo
+docker volume create mongodbdata
+docker run --restart=always -p 27017:27017 --name mongodb -d -v mongodbdata:/data/db mongo
 ```
 
 ## Access
